@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  {{ HEAD }}
+  </style>
+  <!-- Mermaid 渲染 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+  <script>
+  mermaid.initialize({ startOnLoad: false });
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('pre.mermaid').forEach(pre => {
+      const code = pre.querySelector('code');
+      if (code) {
+        const text = code.textContent;
+        pre.textContent = text;
+      }
+    });
+    mermaid.run();
+  });
+  </script>
+</head>
+
+<body class="markdown-body">
+  {{ BODY }}
+</body>
+
+</html>
